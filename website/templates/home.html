@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+<!-- <div class="col-md-6 offset-md-3"> -->
+
+
+
+{% if user.is_authenticated %}
+
+<div class="table-header">
+  <div class="filter-icon-container">
+    <i class="fas fa-filter" style="color:rgb(110,22,11)"> </i>&emsp; 
+    
+    <a href="{% url 'home' %}">
+      <i class="fas fa-redo-alt" style="color:rgb(110,22,11)" ></i>
+    </a>&emsp; 
+
+    <a href="{% url 'venue_csv' %}">
+      <i class="fas fa-download" style="color:rgb(110,22,11)" ></i>
+    </a>&emsp;  
+
+    
+    <div class="filter-card">
+      <button class="close-btn"></button>
+      <h2>Filter Options</h2>
+      <form method="GET" action="{% url 'home' %}">
+        {{ form.as_p }}
+        <button type="submit">Apply Filters</button>
+      </form>
+    </div>
+
+    <div class="filter-card" id="download-card" style="display:none">
+      <button class="close-btn" onclick="hideDownloadCard()"></button>
+      <h2>Download Options</h2>
+      <!-- download options form here -->
+      <button type="button" onclick="downloadData()"> {{ csv }}</button>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>
+
+
+<br>
+
+<div class="tableFixHead">
+  <table class="table table-hover">
+    
+      <thead>
+        <tr>
+          <th scope="col">ID
+          </th>
+          <th scope="col">Name
+          </th>
+          <th scope="col">Sex
+          </th>
+          <th scope="col">Strand
+          </th>
+          <th scope="col">Batch
+          </th>
+          <th scope="col">University
+          </th>
+          <th scope="col">Course
+          </th>
+          </th>
+          <th scope="col">HEI
+          </th>
+          
+
+        </tr>
+      </thead>
+      <tbody>    
+      {% if records %}    
+        {% for record in records %}
+          <tr>
+              <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
+              <td>{{ record.last_name }}, {{ record.first_name }} {{record.middle_initial}}</td>
+              <td>{{ record.sex }}</td>
+              <td>{{ record.strand }}</td>
+              <td>{{ record.graduation_year }} </td>
+              <td>{{ record.college_university }}</td>
+              <td>{{ record.college_course }}</td>
+              <td>{{ record.hei }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>    
+      <tfoot>
+        <tr>
+          <td>Records: {{ records_count }} / {{ all_records_count }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Dynamic Dashboard</td>
+        </tr>
+      </tfoot>
+
+
+    {% endif %}
+    
+
+  </table>
+</div>
+
+
+{% else %}
+
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+        <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://scontent.fmnl25-4.fna.fbcdn.net/v/t1.15752-9/334904641_5918329134910551_7961733542039970084_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeEo2zu49zN54waJEhi62fpG6WryL-JIdDbpavIv4kh0NsHHt6ubAdxSr49cxKtvaaxIyZHnvKTAYEOnjInXOU-y&_nc_ohc=tLGFL0lKlwAAX-OhF2n&_nc_ht=scontent.fmnl25-4.fna&oh=03_AdRHZtaJH9AFs6zCYCyYvhW9f2QrdLtnEtiOTPXiw7G6Xw&oe=647EC8EC"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; "/>
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+            <div class="card-body p-4 p-lg-5 text-black">
+                <form method="POST" action="{% url 'home' %}">
+                    {% csrf_token %}
+                    <form>
+
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                        <span class="h2 fw-bold mb-0">Alumni Database Management System </span>
+                    </div>
+
+                    <hr>
+
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Authorized HCPSMSHS Staff Only</h5>
+
+                    <div class="form-outline mb-4">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="pt-1 mb-4">
+                        <button type="submit" class="btn btn-warning">Login</button>
+                    </div>
+
+                    <h7 class="small text-muted">
+                        For account inquiries, contact Sir John Norman Taruc and Ma'am Fe Ruby Flores of HCPSMSHS SHS Department.
+                    </h7>
+                    <br>
+                    <a href="{% url 'team' %}" class="small text-muted"><u>Persons behind this Project</u></a>
+                    </form>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+{% endif %}
+
+
+
+
+{% endblock %}
+

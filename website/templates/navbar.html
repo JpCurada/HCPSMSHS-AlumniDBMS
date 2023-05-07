@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="https://scontent.fmnl25-5.fna.fbcdn.net/v/t1.15752-9/334543658_5252301751539177_1569672245061740367_n.png?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeF5nwl0TKWGbUs1I3pvQWNKoghS1KbqdSOiCFLUpup1I1eIG-Om-WAP9GykO7N_NJQl_vZp4nNHeP9Pt7_3MvgK&_nc_ohc=9w3gdtFcXCwAX9tYxA_&_nc_ht=scontent.fmnl25-5.fna&oh=03_AdS6vuzPpfxVGJ_mnuyswxFCG7nyoCv0SaTXPFAHfOLQ-g&oe=647EEA4C" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+        Alumni DBMS |
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+   
+          
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link navbar-text" href="{% url 'logout' %}">Logout</a>
+          </li>
+  
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link navbar-text" href="{% url 'home' %}">Home</a>
+          </li>        
+          {% endif %}
+          
+
+
+          
+        </ul>
+      </div>
+
+        <!-- Navegation icons -->
+      <a class="sideNav__button" href="https://www.linkedin.com/in/jpcurada/" target="_blank"><img class="navIcon" src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t1.15752-9/334907771_228300106305176_8885822625330941137_n.png?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeHij_Qls1Rtnn-DFbdWc7nPZj4XdXHZ1TpmPhd1cdnVOrzLtyjH763vFP2iiO7dOjOKlQdEqg7yZ1imTpZYbY1e&_nc_ohc=O7-vz5CcbKQAX9wc-1U&_nc_ht=scontent.fmnl25-1.fna&oh=03_AdQVig4UjpYArRCD6H_AtsMaqgTb35F-BwBgUJ0scQ1GlQ&oe=647EF1FA" alt="" width="30" height="30"></a>
+
+
+    </div>
+  </nav>

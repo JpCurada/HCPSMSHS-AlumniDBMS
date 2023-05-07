@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "website",
-    "django_filters"
+    "django_filters",
+    "defender", 
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "defender.middleware.FailedLoginMiddleware",
 ]
 
 ROOT_URLCONF = "HCPSMSHS.urls"
@@ -79,7 +81,7 @@ WSGI_APPLICATION = "HCPSMSHS.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "HCPSMSHS_alumni_db",
+        "NAME": "HCPSMSHS_Alumni_DB",
         "USER": "root",
         "PASSWORD": "1020sigmaligaya0230.09",
         "HOST": "localhost",

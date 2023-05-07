@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alumni DBMS</title>
+    <link rel="icon" href="https://scontent.fmnl4-1.fna.fbcdn.net/v/t1.15752-9/334543658_5252301751539177_1569672245061740367_n.png?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeF5nwl0TKWGbUs1I3pvQWNKoghS1KbqdSOiCFLUpup1I1eIG-Om-WAP9GykO7N_NJQl_vZp4nNHeP9Pt7_3MvgK&_nc_ohc=zNOzlWeYFB4AX_KlJkZ&_nc_ht=scontent.fmnl4-1.fna&oh=03_AdQ_CdarLB7m_l670TBtuOY6OxlNDlW-ORSZ6l2vly4MRQ&oe=642B6B4C">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/svg-with-js.min.css" integrity="sha512-W3ZfgmZ5g1rCPFiCbOb+tn7g7sQWOQCB1AkDqrBG1Yp3iDjY9KYFh/k1AWxrt85LX5BRazEAuv+5DV2YZwghag==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            height: auto;
+            background-image: url("https://scontent.fmnl25-5.fna.fbcdn.net/v/t1.15752-9/334907774_1108816707178177_9211629095414699504_n.png?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeEUp7UA5xRtm92uPNg3iaLAA0ubh5NS6uMDS5uHk1Lq4_f8L4MXgKgRrYoFjdCWs2G1eiV2yNWfpm4iTTRoSY-v&_nc_ohc=qSoAefv6CLsAX89kkH3&_nc_ht=scontent.fmnl25-5.fna&oh=03_AdS2DhaFdnQVBOPNx2GGaVFbCjZnBJPQzF5ii6HERiyx0w&oe=647EC4A0");
+            background-size: cover;
+            background-repeat:no-repeat;
+        }
+
+        .navbar-default {
+            background: none;
+                border: none;
+                
+        }
+
+        /* Modify the background color */
+         
+        .navbar-custom {
+            background-color:rgb(110,22,11);
+        }
+        /* Modify brand and text color */
+         
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: rgba(252, 252, 252, 0.973);
+        
+        }
+
+
+        .sideNav__button {
+            text-decoration: none;
+            color: white;
+            
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6 {
+            font-family: "Poppins"!important;
+        }
+
+            
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+        }
+    .pt-5 {
+        padding-top: 3rem !important;
+        }
+        
+    .my-5 {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+        }
+
+    .border-0 {
+        border: 0 !important;
+        }
+
+    .position-relative {
+        position: relative !important;
+        }
+
+    .shadow-lg {
+        box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%) !important;
+        }
+
+    .card {
+        position: relative;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0,0,0,0.125);
+        border-radius: .25rem;
+        }
+
+    .member-profile {
+        top: -50px;
+        left: 0;
+        }
+    .text-center {
+        text-align: center !important;
+        }
+    .w-100 {
+        width: 100% !important;
+        }
+    .position-absolute {
+        position: absolute !important;
+        }
+
+    .member-profile img {
+        width: 100px;
+        height: 100px;
+        }
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+    .mx-auto {
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+    .shadow-sm {
+        box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+    }
+ 
+    table {
+        max-width: 100%; /* 140px * 5 column + 16px scrollbar width */
+        border-spacing: 0;
+        display: block;
+        height: 600px;
+        table-layout: auto;
+        background-color: aliceblue;
+        box-shadow: 0 2px 8px rgb(110,22,11);
+        
+    }
+
+
+    .tableFixHead tbody {
+        display: block;
+        width: 100%;
+        overflow: auto;
+        height: 530px;
+    }
+    .tableFixHead thead tr {
+      display: block;
+      position: sticky;
+      top: 0;
+      background:rgb(255, 255, 255);
+      color:black;
+    }
+    .tableFixHead th,
+    .tableFixHead  td {
+        padding: 5px 10px;
+        width: 220px;
+    }
+
+
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #6c1414; 
+    }
+
+    .filter-icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+        width: 100%;
+    }
+
+    .filter-icon-container i {
+        font-size: 18px;
+        cursor: pointer;
+
+    }
+
+    .filter-card {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 2px 8px rgb(110,22,11);
+        z-index: 999;
+    }
+
+    .filter-card h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .filter-card label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .filter-card input,
+    .filter-card select {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .filter-card button {
+        display: block;
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: rgb(110,22,11);
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .filter-card button:hover {
+        background-color: rgb(110,22,11);
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(2px);
+        z-index: 998;
+        display: none;
+    }
+
+    .filter-card.show {
+        display: block;
+    }
+
+    .overlay.show {
+        display: block;
+    }
+
+
+    .filter-card .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .filter-card .close-btn::before,
+    .filter-card .close-btn::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 15px;
+        height: 2px;
+        background: rgb(110,22,11);
+        transform: translate(-50%, -50%);
+    }
+
+    .filter-card .close-btn::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .filter-card .close-btn::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .filter-card .close-btn:hover::before,
+    .filter-card .close-btn:hover::after {
+        background: rgb(110,22,11);
+    }
+
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f8f8f8;
+        padding: 10px 20px;
+        border-bottom: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgb(110,22,11);
+        width: 14%;
+        border-radius: 20px;
+    }
+
+    .caption {
+        margin-bottom: 20px;
+    }
+
+    tfoot {
+        border-top: 2px solid #ccc;
+        display: block;
+        position: sticky;
+        top: 0;
+        background:rgb(255, 255, 255);
+        color:black;
+    }
+
+    tfoot td{
+        font-family: 'Poppins';
+        color:black;
+    }
+
+    </style>
+  <body>
+    {% include 'navbar.html' %}
+    <div class="container">
+      <br/>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+
+        {% endfor %}
+      {% endif %}
+      
+      {% block content %}
+      {% endblock%}
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        const filterIcon = document.querySelector('.filter-icon-container i');
+        const filterCard = document.querySelector('.filter-card');
+        const overlay = document.querySelector('.overlay');
+        const closeBtn = document.querySelector('.filter-card .close-btn');
+        const clearBtn = document.querySelector('.filter-card .clear-btn');
+
+        filterIcon.addEventListener('click', () => {
+            filterCard.classList.add('show');
+            overlay.classList.add('show');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            filterCard.classList.remove('show');
+            overlay.classList.remove('show');
+        });
+    </script>
+    <script>
+        function showDownloadCard() {
+            document.getElementById("download-card").style.display = "block";
+            overlay.classList.add('show');
+        }
+    
+        function hideDownloadCard() {
+            document.getElementById("download-card").style.display = "none";
+            overlay.classList.remove('show');
+        }
+    
+        function downloadData() {
+        // download logic here
+        }
+    
+    </script>
+    
+
+  </body>
+</html>
