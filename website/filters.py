@@ -42,7 +42,7 @@ class RecordFilter(django_filters.FilterSet):
 
     class Meta:
         model = Record
-        fields = ['last_name', 'strand', 'graduation_year', 'college_university', 'college_course']
+        fields = ['last_name', 'strand', 'graduation_year', 'college_university', 'college_course', 'hei']
 
     
 
